@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void)
+{
+	int x = 0, y = 0, w = 0, h = 0;
+	cin >> x >> y >> w >> h;
+	int num[4] = { x - 0, y - 0, w - x, h - y };
+	int min_num = num[0];
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (num[i] <= min_num)
+		{
+			min_num = num[i];
+		}
+	}
+
+	cout << min_num << endl;
+
+	return 0;
+}
