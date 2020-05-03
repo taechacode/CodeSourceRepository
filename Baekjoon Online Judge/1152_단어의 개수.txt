@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	char ch[1000000] = { 0, };
+	cin.getline(ch, 1000000);
+
+	int count = 0;
+	for (int i = 1; i < 1000000; i++)
+	{
+		if (ch[i] == ' ')
+			count++;
+		else if (ch[i-1] != 0 && ch[i - 1] != ' ' && ch[i] == 0)
+			count++;
+	}
+	cout << count << endl;
+	return 0;
+}
