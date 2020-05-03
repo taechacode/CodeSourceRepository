@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define SIZE 1000000
+/* A = 65, a = 97, 차이는 32 */
+
+int maxalpha(int a[]);
+
+int main()
+{
+	char arr[SIZE];
+	int alpha[26] = {0, };
+	int char_num = 0;
+	int largest_num;
+	char largest_alpha;
+	cin >> arr;
+	
+	cout << "변환 전 내용 : " << arr << endl;
+	for(int i = 0; i < strlen(arr); i++)
+	{
+		arr[i] = toupper(arr[i]);
+	}
+	cout << "변환 후 내용 : " << arr << endl;
+	for(int i = 0; i < strlen(arr); i++)
+	{
+		char_num = arr[i] - 65;
+		cout << char_num << " ";
+		alpha[char_num] += 1;
+	}
+	cout << endl;
+	int number = alpha[8];
+	cout << number << endl;
+	
+	largest_num = maxalpha(alpha);
+	
+	if(largest_num == -1)
+	{
+		cout << "?" << endl;
+	}
+	
+	else
+	{
+		largest_alpha = largest_num + 65;
+		cout << largest_alpha << endl;
+	}
+		
+	return 0;
+}
+
+int maxalpha(int a[])
+{
+	int max = a[0];
+	int max_index = 0;
+	
+	for(int i = 0; i < 26; i++)
+	{
+		if(max < a[i])
+		{
+			max = a[i];
+			max_index = i;
+		}
+	}
+	
+	int count = 0;
+	for(int i = 0; i < 26; i++)
+	{
+		if(max == a[i])
+		{
+			count++;
+		}
+	}
+	
+	if(count > 1)
+	{
+		return -1;
+	}
+	else
+	{
+		return max_index;
+	}
+}
