@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
+int main(void)
+{
+	string number_str;
+	cin >> number_str;
+	double length = (double)number_str.length() * 9;
+	double number_N = 0;
+	int count = 0;
+	for (int i = number_str.length() - 1; i >= 0; i--)
+	{
+		number_N = number_N + (pow(10, i) * (number_str[count] - 48));
+		count++;
+	}
+
+	double result = 0;
+
+	for (int j = number_N - length; j < number_N; j++)
+	{
+		double trans_j = j;
+		for (int k = 7; k >= 0; k--)
+		{
+			int temp_1 = j / pow(10, k - 1);
+			int temp_2 = j / pow(10, k);
+			trans_j = trans_j + ((int)temp_1 - ((int)temp_2 * 10));
+		}
+		if (trans_j == number_N)
+		{
+			result = j;
+			break;
+		}		
+	}
+	cout << result << endl;
+	return 0;
+}
