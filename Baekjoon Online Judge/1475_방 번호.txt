@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+using namespace std;
+
+int result(int list[])
+{
+	int max = 0;
+	for (int j = 0; j < 9; j++)
+	{
+		if (max < list[j])
+		{
+			max = list[j];
+		}
+	}
+	return max;
+}
+
+int main(void)
+{
+	char num[8];
+	int check_list[9] = { 0, };
+	cin >> num;
+	for (int i = 0; i < strlen(num); i++)
+	{
+		int current_num = num[i] - 48;
+		if (current_num == 9)
+		{
+			check_list[6]++;
+		}
+		else
+		{
+			check_list[current_num]++;
+		}
+	}
+
+	if (check_list[6] % 2 == 0)
+	{
+		check_list[6] = check_list[6] / 2;
+	}
+	else
+	{
+		check_list[6]++;
+		check_list[6] = check_list[6] / 2;
+	}
+	
+	cout << result(check_list) << endl;
+	return 0;
+}
