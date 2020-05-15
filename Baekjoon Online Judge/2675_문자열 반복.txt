@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <iostream>
+
+int main()
+{
+	int tcase, rcase; //tcase = "test case", rcase = "repeat case"
+	char stext[20]; //stext = "sample text"
+	scanf("%d", &tcase);
+	for(int i = 0; i < tcase; i++)
+	{
+		scanf("%d %s", &rcase, &stext);
+		for(int j = 0; stext[j] != '\0'; j++)
+		{
+			for(int k = 0; k < rcase; k++)
+			{
+				printf("%c", stext[j]);
+			}			
+		}
+		printf("\n");
+	} 
+	return 0;
+}
