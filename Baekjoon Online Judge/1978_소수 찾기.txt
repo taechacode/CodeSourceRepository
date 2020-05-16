@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
+int main(void)
+{
+	int n;
+	int num[100];
+	int count = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> num[i];
+		if (num[i] == 1)
+		{
+			continue;
+		}
+		else if (num[i] == 2)
+		{
+			count++;
+			continue;
+		}
+		else
+		{
+			for (int j = 2; j < ceil(sqrt(num[i]))+1; j++)
+			{
+				if (num[i] % j == 0)
+					break;
+				else if (j == ceil(sqrt(num[i])))
+				{
+					count++;
+					break;
+				}
+				else
+					continue;
+			}
+		}
+	}
+	cout << count << endl;
+}
