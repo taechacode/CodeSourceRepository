@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(void) {
+	string a, b;
+	cin >> a >> b;
+	int addr = 2;
+	while (addr >= 0)
+	{
+		if (a[addr] == b[addr])
+		{
+			cout << a[addr--];
+			continue;
+		}
+		if (a[addr] > b[addr])
+		{
+			while (addr >= 0)
+				cout << a[addr--];
+		}
+		else
+		{
+			while (addr >= 0)
+				cout << b[addr--];
+		}
+	}
+	return 0;
+}
