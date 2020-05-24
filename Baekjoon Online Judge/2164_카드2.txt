@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#include <stack>
+using namespace std;
+
+int main(void)
+{
+	int n;
+	queue<int> que;
+	stack<int> result;
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		que.push(i);
+	}
+	do
+	{
+		result.push(que.front());
+		que.pop();
+		if (que.empty() == true)
+			break;
+		que.push(que.front());
+		que.pop();
+	} while (!que.empty());
+	cout << result.top() << endl;
+	return 0;
+}
