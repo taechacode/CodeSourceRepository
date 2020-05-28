@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+using namespace std;
+
+int main(void)
+{
+	int n;
+	cin >> n;
+	char x[20], y[20];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> x >> y;
+		cout << "Distances: ";
+		for (int j = 0; j < strlen(x); j++)
+		{
+			int result = 0;
+			if (y[j] >= x[j])
+			{
+				cout << y[j] - x[j] << " ";
+			}
+			else
+			{
+				cout << (y[j] + 26) - x[j] << " ";
+			}
+		}
+		cout << endl;
+	}
+}
