@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+using namespace std;
+
+int main(void)
+{
+	char word[1000];
+	char trans_word[1000] = { 0, };
+	cin >> word;
+	for (int i = 0; i < strlen(word); i++)
+	{
+		if (word[i] < 68)
+		{
+			trans_word[i] = word[i] + 23;
+		}
+		else
+		{
+			trans_word[i] = word[i] - 3;
+		}
+	}
+	
+	for (int j = 0; j < strlen(word); j++)
+	{
+		cout << trans_word[j];
+	}
+
+	cout << endl;
+}
