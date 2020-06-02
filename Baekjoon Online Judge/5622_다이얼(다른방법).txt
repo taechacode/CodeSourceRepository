@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(void)
+{
+	char alpha[26] = { 0, };
+	string ch;
+	int result = 0, dial;
+	cin >> ch;
+	for (char e : ch)
+	{
+		alpha[e - 'A']++;
+	}
+	for (int i = 0; i <= 'Z' - 'A'; i++)
+	{
+		if (i == 'S' - 'A' || i == 'V' - 'A')
+		{
+			result += (i / 3 + 2) * alpha[i];
+			continue;
+		}
+
+		if (alpha[i])
+		{
+			dial = i / 3 + 3;
+			if (dial > 9)
+			{
+				result += 10 * alpha[i];
+			}
+			else
+			{
+				result += dial * alpha[i];
+			}
+		}
+	}
+	cout << result << endl;
+	return 0;
+}
