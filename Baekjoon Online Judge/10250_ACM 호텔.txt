@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void)
+{
+	int count, H, W, N;
+	cin >> count;
+	for (int i = 0; i < count; i++)
+	{
+		int result, room_height, room_num;
+		cin >> H >> W >> N;
+		if (N % H == 0)
+		{
+			room_height = H * 100;
+			room_num = N / H;
+		}
+		else
+		{
+			room_height = (N % H) * 100;
+			room_num = (N / H) + 1;
+		}
+		
+		result = room_height + room_num;
+		cout << result << endl;
+	}
+
+	return 0;
+}
