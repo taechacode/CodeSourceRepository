@@ -1,0 +1,69 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main(void)
+{
+	stack<int> stk;
+	int order_num;
+	cin >> order_num;
+	
+	for (int i = 0; i < order_num; i++)
+	{
+		string order;
+		cin >> order;
+
+		if (order == "push")
+		{
+			int order_value;
+			cin >> order_value;
+			stk.push(order_value);
+		}
+
+		else if (order == "pop")
+		{
+			if (!stk.empty())
+			{
+				cout << stk.top() << endl;
+				stk.pop();
+			}
+			
+			else
+			{
+				cout << -1 << endl;
+			}
+		}
+
+		else if (order == "size")
+		{
+			cout << stk.size() << endl;
+		}
+
+		else if (order == "empty")
+		{
+			if (stk.empty())
+			{
+				cout << "1" << endl;
+			}
+			else
+			{
+				cout << "0" << endl;
+			}
+		}
+
+		else if (order == "top")
+		{
+			if (!stk.empty())
+			{
+				cout << stk.top() << endl;
+			}
+			else
+			{
+				cout << "-1" << endl;
+			}
+		}
+	}
+	
+	return 0;
+}
