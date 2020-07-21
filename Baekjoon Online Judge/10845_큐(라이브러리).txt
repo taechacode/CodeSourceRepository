@@ -1,0 +1,81 @@
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+int main(void)
+{
+	queue<int> que;
+	int order_num;
+	cin >> order_num;
+	
+	for (int i = 0; i < order_num; i++)
+	{
+		string order;
+		cin >> order;
+
+		if (order == "push")
+		{
+			int order_value;
+			cin >> order_value;
+			que.push(order_value);
+		}
+
+		else if (order == "pop")
+		{
+			if (!que.empty())
+			{
+				cout << que.front() << endl;
+				que.pop();
+			}
+			
+			else
+			{
+				cout << -1 << endl;
+			}
+		}
+
+		else if (order == "size")
+		{
+			cout << que.size() << endl;
+		}
+
+		else if (order == "empty")
+		{
+			if (que.empty())
+			{
+				cout << "1" << endl;
+			}
+			else
+			{
+				cout << "0" << endl;
+			}
+		}
+
+		else if (order == "front")
+		{
+			if (!que.empty())
+			{
+				cout << que.front() << endl;
+			}
+			else
+			{
+				cout << "-1" << endl;
+			}
+		}
+
+		else if (order == "back")
+		{
+			if (!que.empty())
+			{
+				cout << que.back() << endl;
+			}
+			else
+			{
+				cout << "-1" << endl;
+			}
+		}
+	}
+	
+	return 0;
+}
