@@ -1,0 +1,76 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <deque>
+using namespace std;
+
+int main(void)
+{
+	int n;
+	cin >> n;
+
+	int data;
+	deque<int> dq;
+
+	for (int i = 0; i < n; i++)
+	{
+		string order;
+		cin >> order;
+		if (order == "push_front")
+		{
+			cin >> data;
+			dq.push_front(data);
+		}
+		else if (order == "push_back")
+		{
+			cin >> data;
+			dq.push_back(data);
+		}
+		else if (order == "pop_front")
+		{
+			if (dq.empty())
+				cout << "-1" << endl;
+			else
+			{
+				cout << dq.front() << endl;
+				dq.pop_front();
+			}
+		}
+		else if (order == "pop_back")
+		{
+			if (dq.empty())
+				cout << "-1" << endl;
+			else
+			{
+				cout << dq.back() << endl;
+				dq.pop_back();
+			}
+		}
+		else if (order == "size")
+		{
+			cout << dq.size() << endl;
+		}
+		else if (order == "empty")
+		{
+			if (dq.empty())
+				cout << "1" << endl;
+			else
+				cout << "0" << endl;
+		}
+		else if (order == "front")
+		{
+			if (dq.empty())
+				cout << "-1" << endl;
+			else
+				cout << dq.front() << endl;
+		}
+		else if (order == "back")
+		{
+			if (dq.empty())
+				cout << "-1" << endl;
+			else
+				cout << dq.back() << endl;
+		}
+	}
+	return 0;
+}
