@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(void)
+{
+	int N, K;
+	int deno = 1;
+	int numer1 = 1;
+	int numer2 = 1;
+	int result = 0;
+	cin >> N >> K;
+
+	for (int i = 1; i < N + 1; i++)
+	{
+		deno = deno * i;
+	}
+
+	for (int i = 1; i < N - K + 1; i++)
+	{
+		numer1 = numer1 * i;
+	}
+
+	for (int i = 1; i < K + 1; i++)
+	{
+		numer2 = numer2 * i;
+	}
+	
+	result = deno / (numer1 * numer2);
+
+	cout << result << endl;
+
+	return 0;
+}
