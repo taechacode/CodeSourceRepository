@@ -1,0 +1,66 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <stack>
+using namespace std;
+
+int main(void)
+{
+	string str;
+	stack<char> stk;
+	getline(cin, str);
+	int flag = 0;
+	for(int count = 0; count < str.length(); count++)
+	{
+		if (str[count] == '<')
+		{
+			flag = 1;
+		}
+		else if (str[count] == '>')
+		{
+			cout << str[count];
+			flag = 0;
+		}
+
+		if (flag == 1)
+		{
+			cout << str[count];
+		}
+		else if (str[count] == '>')
+			continue;
+		else if (str[count + 1] == '<')
+		{
+			stk.push(str[count]);
+			while (!stk.empty())
+			{
+				cout << stk.top();
+				stk.pop();
+			}
+		}
+		else if (count+1 == str.length())
+		{
+			stk.push(str[count]);
+			while (!stk.empty())
+			{
+				cout << stk.top();
+				stk.pop();
+			}
+		}
+		else if (str[count] == ' ')
+		{
+			while (!stk.empty())
+			{
+				cout << stk.top();
+				stk.pop();
+			}
+			cout << " ";
+		}
+		else
+		{
+			stk.push(str[count]);
+		}
+	} 
+	
+	cout << endl;
+	return 0;
+}
