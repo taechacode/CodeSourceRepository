@@ -1,0 +1,48 @@
+package example;
+
+import java.util.*;
+
+public class HelloJava {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		long n, x, y, answer = 0;
+		// n은 반복 횟수, x는 시작 지점, y는 도착 지점, answer는 최소한의 공간이동 장치 작동 횟수
+		
+		long cal_distance;
+		// cal_distance는 시작 지점과 도착 지점 사이의 거리
+		
+		n = s.nextInt();
+		
+		for(int i = 0; i < n; i++)
+		{
+			long sum = 0;
+			x = s.nextLong();
+			y = s.nextLong();
+			cal_distance = y - x;
+			if (cal_distance <= 3)
+			{
+				System.out.println(cal_distance);
+				continue;
+			}
+
+			for(int j = 1; j < cal_distance; j++)
+			{
+				sum += j;
+				if(cal_distance <= sum)
+				{
+					answer = j * 2 - 1;
+					break;
+				}
+				sum += j;
+				if(cal_distance <= sum)
+				{
+					answer = j * 2;
+					break;
+				}	
+			}
+			System.out.println(answer);
+		}
+		
+		s.close();
+	}
+}
