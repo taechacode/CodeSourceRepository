@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int number;
+	cin >> number;
+
+	int sum = 0;
+	int i = 1;
+
+	while(sum < number)
+	{
+		sum = sum + i;
+		i++;
+	}
+	
+	int deno; // 분모 
+	int numer; // 분자
+	int diff = sum - number;
+	
+	if (i % 2 == 0)
+	{
+		deno = i - 1;
+		numer = 1;
+	
+		deno -= diff;
+		numer += diff;
+	}
+	
+	else
+	{
+		deno = 1;
+		numer = i - 1;
+	
+		deno += diff;
+		numer -= diff;
+	}
+	
+	cout << numer << "/" << deno << endl;	 
+	return 0;
+}
