@@ -1,0 +1,35 @@
+package algorithm_problem;
+
+import java.io.*;
+
+public class Main {
+	public static boolean[] checkbox = new boolean[246913];
+	
+	public static void prime_made() {
+		for(int i = 2; i <= Math.sqrt(checkbox.length); i++) {
+			if(checkbox[i]) continue;
+			for(int j = i * i; j < checkbox.length; j = j + i) {
+				checkbox[j] = true;
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int input = Integer.parseInt(br.readLine());
+		
+		prime_made();
+		
+		int count;
+		
+		while(input != 0) {
+			count = 0;
+			for(int i = input + 1; i <= input * 2; i++) {
+				if(checkbox[i] == false)
+					count++;
+			}
+			System.out.println(count);
+			input = Integer.parseInt(br.readLine());
+		}
+	}
+}
