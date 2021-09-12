@@ -1,0 +1,65 @@
+package algorithm_problem;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static int min_count  = 64;
+	public static void checkboard(String[][] input, int i, int j) {
+		String checker = new String();
+		int count = 0;
+		
+		for(int a = i; a < i + 8; a++) {
+			if(a % 2 == 0) {
+				checker = "W";
+			}
+			else {
+				checker = "B";
+			}
+			for(int b = j; b < j + 8; b++) {
+				if(input[a][b] != checker) {
+					count++;
+				}
+				if(checker == "W") {
+					checker = "B";
+				}
+				else {
+					checker = "W";
+				}
+			}
+		}
+		count = Math.min(count, 64 - count);
+		min_count = Math.min(min_count, count);
+	}
+	
+	public static void main(String[] args) throws IOException {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String[] size = new String[2];
+			size = br.readLine().split(" ");
+			
+			int width = Integer.parseInt(size[1]);
+			int height = Integer.parseInt(size[0]);
+			
+			String[][] input = new String[height][width];
+			
+			for(int i = 0; i < height; i++) {
+				String str = br.readLine();
+				for(int j = 0; j < width; j++) {
+					if(str.charAt(j) == 'W') {
+						input[i][j] = "W";
+					}
+					else {
+						input[i][j] = "B";
+					}
+				}
+			}
+			
+			for(int i = 0; i < height - 7; i++) {
+				for(int j = 0; j < width - 7; j++) {
+					checkboard(input, i, j);
+				}
+			}
+			
+			System.out.println(min_count);
+	}
+}
