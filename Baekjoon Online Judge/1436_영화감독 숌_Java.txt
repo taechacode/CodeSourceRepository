@@ -1,0 +1,87 @@
+package algorithm_problem;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void findCount(int N) {
+		int count = 1;
+		int num = 0;
+		int leading_digit = 0;
+		
+		while(true) {
+			if((leading_digit % 10000) / 10 == 666 && leading_digit % 10 != 6) {
+				for(int i = 0; i < 1000; i++) {
+					if(count == N) {
+						System.out.println(leading_digit * 1000 + num);
+						return;
+					}
+					count++;
+					num++;
+				}
+				leading_digit++;
+			}
+			
+			else if(leading_digit % 1000 == 666) {
+				num = 0;
+				for(int i = 0; i < 1000; i++) {
+					if(count == N) {
+						System.out.println(leading_digit * 1000 + num);
+						return;
+					}
+					count++;
+					num++;
+				}
+				leading_digit++;
+			}
+			
+			else if (leading_digit % 100 == 66) {
+				num = 600;
+				for(int i = 0; i < 100; i++) {
+					if(count == N) {
+						System.out.println(leading_digit * 1000 + num);
+						return;
+					}
+					count++;
+					num++;
+				}
+				leading_digit++;
+			}
+			
+			else if(leading_digit % 10 == 6) {
+				num = 660;
+				for(int i = 0; i < 10; i++) {
+					if(count == N) {
+						System.out.println(leading_digit * 1000 + num);
+						return;
+					}
+					count++;
+					num++;
+				}
+				leading_digit++;
+			}
+			
+			else {
+				num = 666;
+				if(count == N) {
+					System.out.println(leading_digit * 1000 + num);
+					return;
+				}
+				count++;
+				leading_digit++;
+			}
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			int N = Integer.parseInt(br.readLine());
+
+			if(N > 1) {
+				findCount(N);
+			}
+			else {
+				System.out.println("666");
+			}
+	}
+}
