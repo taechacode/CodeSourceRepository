@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int num = Integer.parseInt(br.readLine());
+		int[][] array = new int[num][2];
+		String[] bulk;
+		
+		for(int i = 0; i < num; i++) {
+			bulk = br.readLine().split(" ");
+			array[i][0] = Integer.parseInt(bulk[0]);
+			array[i][1] = Integer.parseInt(bulk[1]);
+		}
+		
+		for(int i = 0; i < num; i++) {
+			int rank = 1;
+			for(int j = 0; j < num; j++) {
+				if(i == j) continue;
+				if(array[i][0] < array[j][0] && array[i][1] < array[j][1]) {
+					rank++;
+				}
+			}
+			System.out.print(rank + " ");
+		}
+ 	}
+}
