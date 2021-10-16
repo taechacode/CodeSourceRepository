@@ -1,0 +1,23 @@
+class Solution {
+    public int[] solution(int[] lottos, int[] win_nums) {
+        int[] answer = new int[2];
+        
+        int count = 0;
+        int count_zero = 0;
+        for(int i = 0; i < lottos.length; i++) {
+            if(lottos[i] == 0) {
+                count_zero++;
+            }
+            for(int j = 0; j < win_nums.length; j++) {
+                if(lottos[i] == win_nums[j]) {
+                    count++;
+                }
+            } 
+        }
+        
+        answer[0] = count+count_zero<2?6:Math.abs(count+count_zero-7);
+        answer[1] = count<2?6:Math.abs(count-7);
+
+        return answer;
+    }
+}
