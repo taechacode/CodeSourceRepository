@@ -60,6 +60,7 @@
 ## 프로그래머스 Programmers   
 2021년 10월 16일 : LEVEL1 로또의 최고 순위와 최저 순위 (Java)   
 2021년 10월 17일 : LEVEL1 신규 아이디 추천 (Java)   
+2021년 10월 18일 : LEVEL1 직사각형 별찍기 (Java)   
 <br/>
 
 ## 기타 코드들 The Others   
