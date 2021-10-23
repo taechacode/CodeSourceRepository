@@ -6,6 +6,7 @@
 # 코드 업데이트 이력   
 ## 알고리즘과 자료구조 Algorithm & Data Structure   
 2021년 10월 19일 : 선택 정렬 (Java)   
+2021년 10월 23일 : 버블 정렬 (Java)   
 <br/>
 
 ## 백준 온라인 저지 Baekjoon Online Judge   
