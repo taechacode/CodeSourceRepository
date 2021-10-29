@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			int n = Integer.parseInt(br.readLine());
+			
+			int[] array_original = new int[n];
+			int[] array_sort = new int[n];
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			
+			for(int i = 0; i < n; i++) {			
+				array_original[i] = Integer.parseInt(st.nextToken());
+			}
+			
+			array_sort = array_original.clone();
+			
+			Arrays.sort(array_sort);
+			
+			HashMap<Integer, Integer> map = new HashMap<>();
+			
+			int count = 0;
+			
+			for(int i = 0; i < n; i++) {
+				if(map.get(array_sort[i]) == null) {
+					map.put(array_sort[i], count++);
+				}
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			
+			for(int i = 0; i < n; i++) {
+				sb.append(map.get(array_original[i]) + " ");
+			}
+			
+			System.out.println(sb);
+	}
+}
