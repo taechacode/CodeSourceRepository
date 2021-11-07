@@ -80,6 +80,7 @@
 2021년 10월 26일 : LEVEL1 하샤드 수 (Java)   
 2021년 10월 27일 : LEVEL1 평균 구하기 (Java)   
 2021년 11월 4일 : LEVEL1 콜라츠 추측 (Java)   
+2021년 11월 7일 : LEVEL1 최대공약수와 최소공배수 (Java)   
 <br/>
 
 ## 기타 코드들 The Others   
