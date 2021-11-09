@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr) {
+		int min = arr[0];
+		for(int i = 0; i < arr.length; i++) {
+			if(min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		
+		ArrayList<Integer> arr_int = new ArrayList<>();
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] != min) {
+				arr_int.add(arr[i]);
+			}
+		}
+		
+        if(arr_int.size() <= 1) {
+            return new int[] {-1};
+        }
+        
+		int[] answer = new int[arr_int.size()];
+		for(int i = 0; i < arr_int.size(); i++) {
+			answer[i] = arr_int.get(i);
+		}
+        return answer;
+    }
+}
