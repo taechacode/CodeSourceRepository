@@ -1,16 +1,16 @@
-﻿# 코드 리소스 저장소 CodeSourceRepository
+# :books:코드 리소스 저장소 CodeSourceRepository
 백준 알고리즘 / 프로그래머스 / 자료구조 코드 모음   
 현재 별도의 표기가 없는 한 백준 온라인 저지는 C/C++ 언어로 업로드 되고 있습니다.   
 <br/>
 
-# 코드 업데이트 이력   
-## 알고리즘과 자료구조 Algorithm & Data Structure   
+# :chart_with_upwards_trend:코드 업데이트 이력   
+## :green_book:알고리즘과 자료구조 Algorithm & Data Structure   
 2021년 10월 19일 : 선택 정렬 (Java)   
 2021년 10월 23일 : 버블 정렬 (Java)   
 2021년 10월 31일 : 삽입 정렬 (Java)   
 <br/>
 
-## 백준 온라인 저지 Baekjoon Online Judge   
+## :closed_book:백준 온라인 저지 Baekjoon Online Judge   
 2020년 5월 2일 : 1085번 직사각형에서 탈출 (C++)   
 2020년 5월 3일 : 1152번 단어의 개수 (C++)   
 2020년 5월 4일 : 1157번 단어공부 (C++)   
@@ -70,7 +70,7 @@
 2021년 11월 5일 : 4949번 균형잡힌 세상 (Java)   
 <br/>
 
-## 프로그래머스 Programmers   
+## :blue_book:프로그래머스 Programmers   
 2021년 10월 16일 : LEVEL1 로또의 최고 순위와 최저 순위 (Java)   
 2021년 10월 17일 : LEVEL1 신규 아이디 추천 (Java)   
 2021년 10월 18일 : LEVEL1 직사각형 별찍기 (Java)   
@@ -86,6 +86,6 @@
 2021년 11월 10일 : LEVEL1 정수 제곱근 판별 (Java)   
 <br/>
 
-## 기타 코드들 The Others   
+## :ledger:기타 코드들 The Others   
 2020년 6월 13일 : 음식 레시피 월드컵 (C++)   
 
