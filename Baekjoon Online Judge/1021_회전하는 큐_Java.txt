@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static int halfIndexCal(int deque_size) {
+        if(deque_size % 2 == 0) {
+            return deque_size / 2 - 1;
+        }
+        else {
+            return deque_size / 2;
+        }
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        LinkedList<Integer> deque = new LinkedList<>();
+        for(int i = 1; i <= N; i++) {
+            deque.offer(i);
+        }
+
+        st = new StringTokenizer(br.readLine(), " ");
+        int[] target_array = new int[M];
+        for(int i = 0; i < M; i++) {
+            target_array[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int half_index;
+        int target_index;
+        int count = 0;
+        for(int i = 0; i < M; i++) {
+            half_index = halfIndexCal(deque.size());
+            target_index = deque.indexOf(target_array[i]);
+
+            if(target_index <= half_index) {
+                for(int j = 0; j < target_index; j++) {
+                    deque.offerLast(deque.peek());
+                    deque.removeFirst();
+                    count++;
+                }
+                deque.removeFirst();
+            }
+
+            else {
+                for(int j = target_index; j < deque.size(); j++) {
+                    deque.offerFirst(deque.peekLast());
+                    deque.removeLast();
+                    count++;
+                }
+                deque.removeFirst();
+            }
+        }
+
+        System.out.println(count);
+    }
+}
