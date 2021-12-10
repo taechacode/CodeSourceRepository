@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");	
+				
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		int r = 0;
+		
+		int gcd;
+		long lcm = a * b;
+		
+		while(true) {
+			r = a%b;
+			if(r==0) {
+				gcd = b;
+				break;
+			}
+			else {
+				a = b;
+				b = r;
+			}
+		}
+		
+		lcm /= gcd;
+				
+		System.out.println(gcd);
+		System.out.println(lcm);
+	}
+}
