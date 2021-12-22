@@ -1,0 +1,16 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] str = br.readLine().split(" ");
+		int count = Integer.valueOf(str[0]) / Integer.valueOf(str[1]);
+		if((Integer.valueOf(str[0]) % Integer.valueOf(str[1])) == 0) {
+			count -= 1;
+		}
+		
+		int answer = count * Integer.valueOf(str[2]) * Integer.valueOf(str[3]);
+		System.out.println(answer);
+	}
+}
