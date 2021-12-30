@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] numberString = br.readLine().split(" ");
+		int[] numberInteger = new int[3];
+		for(int i = 0; i < numberString.length; i++) {
+			numberInteger[i] = Integer.valueOf(numberString[i]);
+		}
+		Arrays.sort(numberInteger);
+		
+		int answer = numberInteger[0] + numberInteger[1]
+				+ Math.min(numberInteger[2], numberInteger[0] + numberInteger[1] - 1);
+		System.out.println(answer);
+	}
+}
