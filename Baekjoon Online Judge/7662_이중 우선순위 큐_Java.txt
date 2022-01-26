@@ -1,0 +1,72 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	static StringTokenizer st = null;	
+	static Map<Integer, Integer> map;
+	
+	static int delete(Queue<Integer> que) {
+		int orderValue_key = 0;
+		while(true) {
+			orderValue_key = que.poll();
+			int count = map.getOrDefault(orderValue_key, 0);
+			if(count  == 0)
+				continue;
+			if(count  == 1)
+				map.remove(orderValue_key);
+			else
+				map.put(orderValue_key,  count -1);
+			break;
+		}
+		return orderValue_key;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		int testCount = Integer.parseInt(br.readLine());
+		
+		for(int i = 0; i < testCount; i++) {
+			int orderCount = Integer.parseInt(br.readLine());
+			Queue<Integer> minQueue = new PriorityQueue<>();
+			Queue<Integer> maxQueue = new PriorityQueue<>(Collections.reverseOrder());
+			map = new HashMap<>();
+			
+			for(int j = 0; j < orderCount; j++) {
+				st = new StringTokenizer(br.readLine());
+				String orderJudge = st.nextToken();
+				int orderValue = Integer.parseInt(st.nextToken());
+				
+				if(orderJudge.equals("I")) {
+					minQueue.offer(orderValue);
+					maxQueue.offer(orderValue);
+					map.put(orderValue, map.getOrDefault(orderValue, 0)+1);
+					continue;
+				}
+				
+				else {
+					if(map.size() == 0)
+						continue;
+					if(orderValue == 1) {
+						delete(maxQueue);
+					}
+					else
+						delete(minQueue);
+				}
+			}
+			
+			if(map.size() == 0) {
+				sb.append("EMPTY\n");
+			}
+			else {
+				int answer = delete(maxQueue);
+				sb.append(answer).append(" ");
+				if(map.size() > 0)
+					answer = delete(minQueue);
+				sb.append(answer).append("\n");
+			}
+		}
+		System.out.println(sb.toString());
+	}
+}
