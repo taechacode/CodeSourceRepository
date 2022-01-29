@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		int A = Integer.parseInt(br.readLine());
+		int B = Integer.parseInt(br.readLine());
+		int C = Integer.parseInt(br.readLine());
+		int D = Integer.parseInt(br.readLine());
+		int P = Integer.parseInt(br.readLine());
+		
+		int X = A * P;
+		int Y = P > C ? (P - C) * D + B : B;
+		
+		System.out.println(X < Y ? X : Y);
+	}
+}
