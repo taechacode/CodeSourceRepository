@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	public static void main(String[] args) throws IOException {
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		
+		HashMap<String, String> map = new HashMap<>(); 
+		for(int i = 1; i < N+1; i++) {
+			String pocketmon = br.readLine();
+			String number = Integer.toString(i);
+			map.put(pocketmon, number);
+			map.put(number, pocketmon);
+		}
+		
+		String input;
+		for(int i = 0; i < M; i++) {
+			input = br.readLine();
+			sb.append(map.get(input));
+			sb.append("\n");
+		}
+		
+		System.out.println(sb);
+	}
+}
