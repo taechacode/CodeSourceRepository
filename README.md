@@ -120,6 +120,7 @@
 
 ## :orange_book:SW Expert Academy   
 2022년 2월 5일 : 1954번 달팽이 숫자 (Java)   
+2022년 2월 7일 : 1873번 상호의 배틀필드 (Java)   
 <br/>
 
 ## :ledger:기타 코드들 The Others   
