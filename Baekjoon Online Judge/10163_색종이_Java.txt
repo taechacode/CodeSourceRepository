@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		int[][] array = new int[1001][1001];
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
+		int N = Integer.parseInt(br.readLine());
+		
+		for(int i = 1; i <= N; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int X = Integer.parseInt(st.nextToken());
+			int Y = Integer.parseInt(st.nextToken());
+			int width = Integer.parseInt(st.nextToken());
+			int height = Integer.parseInt(st.nextToken());
+			
+			for(int j = Y; j < Y + height; j++) {
+				for(int k = X; k < X + width; k++) {
+					array[j][k] = i;
+				}
+			}
+			
+		}
+		
+		int count;
+		
+		for(int i = 1; i <= N; i++) {
+			count = 0;
+			
+			for(int j = 0; j < 1001; j++) {
+				for(int k = 0; k < 1001; k++) {
+					if(array[j][k] == i) {
+						count++;
+					}
+				}
+			}
+			
+			System.out.println(count);
+		}
+	}
+}
