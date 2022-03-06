@@ -1,0 +1,66 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	// 입출력 변수들 선언
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	static StringBuilder sb = new StringBuilder();
+	
+	// 노드 및 관계, 그리고 트리 관련 선언
+	static int n;
+	static int[] parents;
+	static List<Integer>[] list;
+	static boolean[] visits;
+	
+	private static void dfs(int v) {
+		// 노드 방문 시 확인
+		visits[v] = true;
+		
+		/* 관계된 노드가 방문이 되어 있지 않으면
+		매개변수로 전해진 v가 부모라는 뜻이므로
+		v를 관계된 노드 i의 부모로 설정 */
+		for(int i : list[v]) {
+			if(!visits[i]) {
+				parents[i] = v;
+				dfs(i);
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		// 관계 입력 횟수 입력
+		n = Integer.parseInt(br.readLine());
+		
+		// 관계를 입력할 list와 부모 노드를 입력할 parents 배열 생성
+		list = new ArrayList[n+1];
+		parents = new int[n+1];
+		
+		// 각 노드에 관계된 노드들을 표시하기 위해 각 배열마다 ArrayList 생성
+		for(int i = 1; i <= n; i++) {
+			list[i] = new ArrayList<>();
+		}
+		
+		// 방문한 노드를 확인하는 배열 생성
+		visits = new boolean[n+1];
+		
+		// 관계 입력
+		for(int i = 0; i < n-1; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			list[a].add(b);
+			list[b].add(a);
+		}
+		
+		// dfs 시작
+		dfs(1);
+		
+		// 부모 노드를 2번째 노드부터 차례대로 출력
+		for(int i = 2; i <= n; i++) {
+			sb.append(parents[i]).append("\n");
+		}
+		
+		System.out.println(sb);
+	}
+}
