@@ -1,0 +1,35 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {	
+	static BufferedReader br;
+	static StringBuilder sb;
+	
+	public static boolean isPalin(StringBuilder sb) {
+		if(sb.toString().equals(new StringBuilder(sb).reverse().toString())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		sb = new StringBuilder(br.readLine());
+		
+		if(isPalin(sb)) {
+			System.out.println(sb.length());
+		}
+
+		else {
+			for(int i = 1; i <= sb.length(); i++) {
+				StringBuilder variableSb = new StringBuilder(sb);
+				variableSb.append(new StringBuilder(sb.substring(0, i)).reverse().toString());
+				if(isPalin(variableSb)) {
+					System.out.println(variableSb.length());
+					break;
+				}
+			}
+		}
+		
+	}
+}
