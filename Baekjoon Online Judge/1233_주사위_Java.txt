@@ -1,0 +1,31 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {	
+	static BufferedReader br;
+	static int[] count = new int[81];
+	
+	public static void main(String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int firstNum = Integer.parseInt(st.nextToken());
+		int secondNum = Integer.parseInt(st.nextToken());
+		int thirdNum = Integer.parseInt(st.nextToken());
+		
+		int maxCount = 0;
+		int maxIndex = 0;
+		for(int i = 1; i <= firstNum; i++) {
+			for(int j = 1; j <= secondNum; j++) {
+				for(int k = 1; k <= thirdNum; k++) {
+					count[i+j+k]++;
+					if(maxCount < count[i+j+k]) {
+						maxCount = count[i+j+k];
+						maxIndex = i+j+k;
+					}
+				}
+			}
+		}
+		
+		System.out.println(maxIndex);
+	}
+}
