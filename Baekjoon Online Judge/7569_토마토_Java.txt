@@ -1,0 +1,92 @@
+package SSAFY;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Solution {
+    static BufferedReader br;
+    static StringTokenizer st;
+    
+    static int[] dx = {-1, 0, 1, 0, 0, 0};
+	static int[] dy = {0, 1, 0, -1, 0, 0};
+	static int[] dz = {0, 0, 0, 0, -1, 1};
+	
+    public static void main(String[] args) throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        st = new StringTokenizer(br.readLine());
+        
+        int M = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int H = Integer.parseInt(st.nextToken());
+        
+        Queue<int[]> queue = new LinkedList<>();
+        
+        int[][][] arr = new int[H][N][M];
+        
+        // count는 익지 않은 토마토의 개수, days는 토마토가 익을 때까지 걸리는 일수
+        int count = 0, days = 0;
+        
+        for (int h = 0; h < H; h++) {
+            for (int n = 0; n < N; n++) {
+            	st = new StringTokenizer(br.readLine());
+                for (int m = 0; m < M; m++) {
+                    arr[h][n][m] = Integer.parseInt(st.nextToken());
+                    
+                    // 익은 토마토를 발견하면 queue에 좌표를 저장
+                    if (arr[h][n][m] == 1)
+                        queue.add(new int[] { h, n, m });
+                    
+                    // 익지 않은 토마토를 발견하면 count를 증가
+                    else if (arr[h][n][m] == 0)
+                        count++;
+                }
+            }
+        }
+        
+        // 익지 않은 토마토가 남아 있거나
+        // 익은 토마토를 모두 점검해서 queue가 비어버릴 때까지 순회
+        while (count > 0 && !queue.isEmpty()) {
+        	
+        	// 현재 queue에 저장된 익은 토마토의 좌표를 모두 탐색
+            for (int s = queue.size(); s > 0; s--) {
+            	
+            	// 익은 토마토가 있는 좌표를 queue에서 꺼내옴
+                int[] cur = queue.poll();
+                
+                // 익은 토마토를 중심으로 6방향을 검사
+                for (int k = 0; k < 6; k++) {
+                    int nz = cur[0] + dz[k];
+                    int ny = cur[1] + dy[k];
+                    int nx = cur[2] + dx[k];
+                    
+                    // 검사하는 좌표가 박스 범위 안이 아니거나, 익지 않은 토마토가 아닐 경우 다른 좌표 탐색(continue)
+                    if (ny < 0 || nx < 0 || nz < 0 || ny >= N || nx >= M || nz >= H || arr[nz][ny][nx] != 0)
+                        continue;
+                    
+                    // 박스 범위 안이면 익지 않은 토마토를 익게끔 만들어줌
+                    count--;
+                    arr[nz][ny][nx] = 1;
+                    
+                    // 새롭게 익은 토마토의 좌표를 queue에 저장
+                    queue.add(new int[] { nz, ny, nx });
+                }
+            }
+            
+            // 반복문을 한 번 순회할 때마다 하루가 지난 것이므로 days 증가
+            days++;
+        }
+        
+        // 토마토를 모두 익게 만들었으면 days 출력
+        if(count == 0) {
+        	System.out.println(days);
+        }
+        else { // count가 0이 아니면 토마토가 다 익지 못하는 상황이므로 -1 출력
+        	System.out.println(-1);
+        }
+        
+    }
+}
