@@ -1,0 +1,179 @@
+package Baekjoon;
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	static int N, M, K, R, C, S;
+	static int[][] array, console; // 원본 배열과 회전 배열
+	static int minRowSum; // 각 행별 최소값 저장
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder("");
+		
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		
+		// 원본 배열
+		array = new int[N][M];
+		
+		// 연산을 담아둘 배열
+	    console = new int[K][3];
+	    
+	    // 각 행별 최소값
+	    minRowSum = Integer.MAX_VALUE;
+	    
+	    // 원본 배열 요소 입력 받기
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < M; j++) {
+				array[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		for (int i = 0; i < K; i++) {
+			st = new StringTokenizer(br.readLine());
+			R = Integer.parseInt(st.nextToken()) - 1;
+			C = Integer.parseInt(st.nextToken()) - 1;
+			S = Integer.parseInt(st.nextToken());
+			
+			console[i] = new int[] {R, C, S};
+		}
+		
+		permutation(new boolean[K], new LinkedList<Integer>());
+		
+		System.out.println(minRowSum);
+	}
+	
+	// 주어진 회전 배열로 만들 수 있는 경우의 수 순열로 구해보기
+	static void permutation(boolean[] visited, LinkedList<Integer> perm) {
+		if (perm.size() == K) {
+			
+			// 원본 배열 복사하여 돌리기 수행
+			int[][] nArray = copyArray();
+
+			// 뽑힌 순열대로 배열 돌리기 수행
+			for (Integer idx : perm) {
+				int r = console[idx][0];
+				int c = console[idx][1];
+				int s = console[idx][2];
+
+				calcPoint(r, c, s, nArray);
+			}
+
+			// 행 합산 최소값 갱신
+			minRowSum = Math.min(minRowSum, calcArr(nArray));
+			return;
+		}
+
+		for (int i = 0; i < K; i++) {
+			if (!visited[i]) {
+				visited[i] = true;
+				perm.add(i);
+
+				permutation(visited, perm);
+
+				visited[i] = false;
+				perm.removeLast();
+			}
+		}
+	}
+	
+	// 회전한 배열을 원본 배열에 붙여넣기
+	static int[][] copyArray() {
+		int[][] nArray = new int[N][M];
+
+		for (int i = 0; i < N; i++) {
+			System.arraycopy(array[i], 0, nArray[i], 0, M);
+		}
+
+		return nArray;
+	}
+	
+	// 회전 연산을 수행할 배열의 좌표를 계산
+	static void calcPoint(int r, int c, int s, int[][] nArray) {
+		for (int i = 0; i < s; i++) {
+			
+			// 가장 왼쪽 윗 칸 좌표
+			int x1 = r - s + i;
+			int y1 = c - s + i;
+			
+			// 가장 오른쪽 아랫 칸 좌표
+			int x2 = r + s - i;
+			int y2 = c + s - i;
+			
+			// 구한 좌표의 배열을 회전시킴
+			rotate(nArray, x1, y1, x2, y2);
+		}
+	}
+	
+	// 각 행별 요소들 합산 구해서 최소값 반환(return)하기
+	static int calcArr(int[][] nArray) {
+		int[] rowSum = new int[N];
+
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				rowSum[i] += nArray[i][j];
+			}
+		}
+		
+		// 오름차순으로 배열하면 가장 첫번째 배열에 최소값이 위치하게 됨
+		Arrays.sort(rowSum);
+
+		return rowSum[0];
+	}
+	
+	// 배열을 회전시키는 메소드
+	static void rotate(int[][] nArray, int x1, int y1, int x2, int y2) {
+		int temp, pastTemp;
+
+	    // 시계방향 탐색 : 우 방향
+	    temp = nArray[x1][y2];
+	    for (int y = y2; y > y1; y--) {
+	      nArray[x1][y] = nArray[x1][y - 1];
+	    }
+
+	    // 시계방향 탐색 : 하 방향
+	    pastTemp = temp;
+	    temp = nArray[x2][y2];
+
+	    for (int x = x2; x > x1; x--) {
+	      if (x - 1 == x1) {
+	        nArray[x][y2] = pastTemp;
+	        continue;
+	      }
+	      nArray[x][y2] = nArray[x - 1][y2];
+	    }
+
+	    // 시계방향 탐색 : 좌 방향
+	    pastTemp = temp;
+	    temp = nArray[x2][y1];
+
+	    for (int y = y1; y < y2; y++) {
+	      if (y + 1 == y2) {
+	        nArray[x2][y] = pastTemp;
+	        continue;
+	      }
+
+	      nArray[x2][y] = nArray[x2][y + 1];
+	    }
+
+	    // 시계방향 탐색 : 상 방향
+	    pastTemp = temp;
+
+	    for (int x = x1; x < x2; x++) {
+	      if (x + 1 == x2) {
+	        nArray[x][y1] = pastTemp;
+	        continue;
+	      }
+
+	      nArray[x][y1] = nArray[x + 1][y1];
+	    }
+
+	    return;
+	}
+	
+}
