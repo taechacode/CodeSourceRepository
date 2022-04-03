@@ -1,0 +1,197 @@
+package Baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	static int[][] array;
+	static int N, M, R;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		N = Integer.parseInt(st.nextToken()); // 가로
+		M = Integer.parseInt(st.nextToken()); // 세로
+		R = Integer.parseInt(st.nextToken()); // 명령어 개수
+		
+		array = new int[N][M];
+		
+		// 배열 입력 받기
+		for(int r = 0 ; r < N ; ++r) {
+			st = new StringTokenizer(br.readLine());
+			for(int c = 0 ; c < M ; ++c) {
+				array[r][c] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		// 배열 입력 끝나고 어떤 연산을 수행할 지 R만큼 입력 받음
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0 ; i < R ; ++i) {
+			int cmd = Integer.parseInt(st.nextToken());
+			
+			switch(cmd) {
+			case 1:
+				one();
+				break;
+			case 2:
+				two();
+				break;
+			case 3:
+				three();
+				break;
+			case 4:
+				four();
+				break;
+			case 5:
+				five();
+				break;
+			case 6:
+				six();
+				break;
+			}
+		}
+		
+		// 출력 메소드
+		print();
+	}
+	
+	// 1번
+	private static void one() {
+		for(int c = 0 ; c < array[0].length ; ++c) {
+			for(int r1 = 0, r2 = array.length - 1 ; r1 < r2 ; r1++, r2--) {
+				int temp = array[r1][c];
+				array[r1][c] = array[r2][c];
+				array[r2][c] = temp;
+			}
+		}
+	}
+	
+	// 2번
+	private static void two() {
+		for(int r = 0 ; r < array.length ; ++r) {
+			for(int c1 = 0, c2 = array[0].length - 1 ; c1 < c2 ; c1++, c2--) {
+				int temp = array[r][c1];
+				array[r][c1] = array[r][c2];
+				array[r][c2] = temp;
+			}
+		}
+	}
+	
+	// 3번
+	private static void three() {
+		int[][] result = new int[array[0].length][array.length];
+		
+		for(int r = 0 ; r < array.length ; ++r) {
+			for(int c = 0 ; c < array[0].length ; ++c) {
+				result[c][array.length - 1 - r] = array[r][c];
+			}
+		}
+		
+		array = result;
+	}
+	
+	// 4번
+	private static void four() {
+		int[][] result = new int[array[0].length][array.length];
+		
+		for(int r = 0 ; r < result.length ; ++r) {
+			for(int c = 0 ; c < result[0].length ; ++c) {
+				result[r][c] = array[c][result.length - 1 - r];
+			}
+		}
+		
+		array = result;
+	}
+	
+	// 6번
+	private static void five() {
+		int[][] result = new int[array.length][array[0].length];
+		
+		int rowSize = array.length;
+		int colSize = array[0].length;
+		
+		// 1번 -> 2번 
+		for(int r = 0 ; r < rowSize / 2 ; ++r) {
+			for(int c = 0 ; c < colSize / 2 ; ++c) {
+				result[r][c + colSize / 2] = array[r][c];
+			}
+		}
+		
+		// 2번 -> 3번
+		for(int r = 0 ; r < rowSize / 2 ; ++r) {
+			for(int c = colSize / 2 ; c < colSize ; ++c) {
+				result[r + rowSize / 2][c] = array[r][c];
+			}
+		}
+		
+		// 3번 -> 4번
+		for(int r = rowSize / 2 ; r < rowSize ; ++r) {
+			for(int c = colSize / 2 ; c < colSize ; ++c) {
+				result[r][c - colSize / 2] = array[r][c];
+			}
+		}
+		
+		// 4번 -> 1번 
+		for(int r = rowSize / 2 ; r < rowSize ; ++r) {
+			for(int c = 0 ; c < colSize / 2 ; ++c) {
+				result[r - rowSize / 2][c] = array[r][c];
+			}
+		}
+		
+		array = result;
+	}
+	
+	// 6번
+	private static void six() {
+		int[][] result = new int[array.length][array[0].length];
+		
+		int rowSize = array.length;
+		int colSize = array[0].length;
+		
+		// 1번 -> 4번 
+		for(int r = 0 ; r < rowSize / 2 ; ++r) {
+			for(int c = 0 ; c < colSize / 2 ; ++c) {
+				result[r + rowSize / 2][c] = array[r][c];
+			}
+		}
+		
+		// 4번 -> 3번
+		for(int r = rowSize / 2 ; r < rowSize ; ++r) {
+			for(int c = 0 ; c < colSize / 2 ; ++c) {
+				result[r][c + colSize / 2] = array[r][c];
+			}
+		}
+		
+		// 3번 -> 2번
+		for(int r = rowSize / 2 ; r < rowSize ; ++r) {
+			for(int c = colSize / 2 ; c < colSize ; ++c) {
+				result[r - rowSize / 2][c] = array[r][c];
+			}
+		}
+		
+		// 2번 -> 1번 
+		for(int r = 0 ; r < rowSize / 2 ; ++r) {
+			for(int c = colSize / 2 ; c < colSize ; ++c) {
+				result[r][c - colSize / 2] = array[r][c];
+			}
+		}
+		
+		array = result;
+	}
+	
+	// 출력 메소드
+	private static void print() {
+		for(int r = 0 ; r < array.length ; ++r) {
+			for(int c = 0 ; c < array[0].length ; ++c) {
+				System.out.print(array[r][c] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+}
