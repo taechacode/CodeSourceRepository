@@ -1,0 +1,127 @@
+package Baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	static BufferedReader br;
+	static StringTokenizer st;
+	static int[][] map = new int[5][5];
+	static int[] checkList = new int[25];
+	
+	// 탐색 방향 한 줄마다 0의 개수(zeroCount)를 확인해서
+	// zeroCount가 5개면 1줄이 완성된 것이므로 lineCount 증가
+	// 방향 탐색이 끝나고 lineCount가 3개 이상이면 메소드 종료하고 true 반환(return)
+	private static boolean check() {
+		
+		int lineCount = 0;
+		int zeroCount = 0;
+		
+		// 1. 가로(행) 방향 탐색
+		for(int i = 0; i < 5; i++) {
+			zeroCount = 0;
+			for(int j = 0; j < 5; j++) {
+				if(map[i][j] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 5) {
+				lineCount++;
+			}
+			if(lineCount > 2) {
+				return true;
+			}
+		}
+		
+		// 2. 세로(열) 방향 탐색
+		for(int i = 0; i < 5; i++) {
+			zeroCount = 0;
+			for(int j = 0; j < 5; j++) {
+				if(map[j][i] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 5) {
+				lineCount++;
+			}
+			if(lineCount > 2) {
+				return true;
+			}
+		}
+		
+		// 3. 좌측 하단에서 우측 상단으로 가는 대각선 탐색
+		zeroCount = 0;
+		for(int i = 0; i < 5; i++) {
+			if(map[4 - i][i] == 0) {
+				zeroCount++;
+			}			
+		}
+		if(zeroCount == 5) {
+			lineCount++;
+		}
+		if(lineCount > 2) {
+			return true;
+		}
+		
+		
+		// 4. 좌측 상단에서 우측 하단으로 가는 대각선 탐색
+		zeroCount = 0;
+		for(int i = 0; i < 5; i++) {
+			if(map[i][i] == 0) {
+				zeroCount++;
+			}			
+		}
+		if(zeroCount == 5) {
+			lineCount++;
+		}
+		if(lineCount > 2) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		
+		// 맵에 숫자 입력 받기
+		for(int i = 0; i < 5; i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j = 0; j < 5; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		// 사회자가 부르는 수를 checkList[]에 입력 받기
+		int index = 0;
+		for(int i = 0; i < 5; i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j = 0; j < 5; j++) {
+				checkList[index++] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		// checkList에 입력된 수를 맵을 순회하면서
+		// 해당된 숫자를 만나면 0으로 표기를 바꿈
+		for(int k = 0; k < 25; k++) {
+			for(int i = 0; i < 5; i++) {
+				for(int j = 0; j < 5; j++) {
+					if(checkList[k] == map[i][j]) {
+						map[i][j] = 0;
+					}
+					
+					// 만약 check를 통해 lineCount의 개수를 세었는데
+					// lineCount가 3 이상이면 빙고라는 의미이므로
+					// true를 반환(return)받고 조건문을 실행하여 결과값을 출력함
+					if(check()) {
+						System.out.println(k + 1);
+						return;
+					}
+				}
+			}
+		}
+		
+	}
+}
