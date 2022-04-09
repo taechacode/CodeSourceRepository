@@ -1,0 +1,165 @@
+package Baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+	static BufferedReader br;
+	static StringTokenizer st;
+	static int x, y;
+	static int[][] store;
+	static int minSum;
+	
+	public static void main(String[] args) throws IOException {
+		
+		br = new BufferedReader(new InputStreamReader(System.in));
+		
+		st = new StringTokenizer(br.readLine());
+		x = Integer.parseInt(st.nextToken());
+		y = Integer.parseInt(st.nextToken());
+		
+		int n = Integer.parseInt(br.readLine());
+		
+		store = new int[n+1][2];
+		
+		// 가게들의 위치 입력 받기
+		for(int i = 0; i < n; i++) {
+			int min = 0;
+			st = new StringTokenizer(br.readLine());
+			store[i][0] = Integer.parseInt(st.nextToken());
+			store[i][1] = Integer.parseInt(st.nextToken());
+		}
+		
+		// 동근이의 위치 입력 받기
+		st = new StringTokenizer(br.readLine());
+		store[n][0] = Integer.parseInt(st.nextToken());
+		store[n][1] = Integer.parseInt(st.nextToken());
+		
+		for(int i = 0; i < n; i++) {
+			int min = Integer.MAX_VALUE;
+			int dis = 0;
+			
+			switch(store[n][0]) {
+			
+			// 동근이의 위치가 북쪽
+			case 1:
+				switch(store[i][0]) {
+				
+				// 가게의 위치가 북쪽
+				case 1:
+					dis = Math.abs(store[n][1] - store[i][1]);
+					break;
+					
+				// 가게의 위치가 남쪽	
+				case 2:
+					dis = Math.min(y + store[n][1] + store[i][1], 
+							y + (x - store[n][1]) + (x - store[i][1]));					
+					break;
+					
+				// 가게의 위치가 서쪽	
+				case 3:
+					dis = store[n][1] + store[i][1];
+					break;
+				
+				// 가게의 위치가 동쪽
+				case 4:
+					dis = (x - store[n][1]) + store[i][1];
+					break;
+				}
+				min = Math.min(min, dis);
+				break;
+			
+			// 동근이의 위치가 남쪽
+			case 2:
+				switch(store[i][0]) {
+
+				// 가게의 위치가 북쪽
+				case 1:
+					dis = Math.min(y + store[n][1] + store[i][1], 
+							y + (x - store[n][1]) + (x - store[i][1]));					
+					break;
+					
+				// 가게의 위치가 남쪽
+				case 2:
+					dis = Math.abs(store[n][1] - store[i][1]);					
+					break;
+										
+				// 가게의 위치가 서쪽	
+				case 3:
+					dis = store[n][1] + (y - store[i][1]);
+					break;
+					
+				// 가게의 위치가 동쪽
+				case 4:
+					dis = (x - store[n][1]) + (y - store[i][1]);					
+					break;
+				}
+				min = Math.min(min, dis);
+				break;
+			
+			// 동근이의 위치가 서쪽
+			case 3:
+				switch(store[i][0]) {
+				
+				// 가게의 위치가 북쪽
+				case 1:
+					dis = store[n][1] + store[i][1];
+					break;
+					
+				// 가게의 위치가 남쪽	
+				case 2:
+					dis = (y - store[n][1]) + store[i][1];					
+					break;
+					
+				// 가게의 위치가 서쪽
+				case 3:
+					dis = Math.abs(store[n][1] - store[i][1]);
+					break;
+					
+				// 가게의 위치가 동쪽
+				case 4:
+					dis = Math.min(x + store[n][1] + store[i][1], 
+							x + (y - store[n][1]) + (y - store[i][1]));					
+					break;
+				}
+				min = Math.min(min, dis);
+				break;
+			
+			// 동근이의 위치가 동쪽	
+			case 4:
+				switch(store[i][0]) {
+				
+				// 가게의 위치가 북쪽
+				case 1:
+					dis = store[n][1] + (x - store[i][1]);					
+					break;
+					
+				// 가게의 위치가 남쪽	
+				case 2:
+					dis = (y - store[n][1]) + (x - store[i][1]);				
+					break;
+					
+				// 가게의 위치가 서쪽	
+				case 3:
+					dis = Math.min(x + store[n][1] + store[i][1], 
+							x + (y - store[n][1]) + (y - store[i][1]));	
+					break;
+					
+				// 가게의 위치가 동쪽	
+				case 4:
+					dis = Math.abs(store[n][1] - store[i][1]);
+					break;
+				}
+				min = Math.min(min, dis);
+				break;
+			}
+			
+			minSum += min;
+		}
+		
+		System.out.println(minSum);
+	}	
+}
