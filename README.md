@@ -193,6 +193,7 @@
 2021년 11월 8일 : LEVEL1 짝수와 홀수 (Java)   
 2021년 11월 9일 : LEVEL1 제일 작은 수 제거하기 (Java)   
 2021년 11월 10일 : LEVEL1 정수 제곱근 판별 (Java)   
+2022년 7월 22일 : LEVEL1 최소 직사각형 (Java)   
 <br/>
 
 ## :orange_book:SW Expert Academy   
