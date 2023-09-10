@@ -201,6 +201,7 @@
 2021년 11월 9일 : LEVEL1 제일 작은 수 제거하기 (Java)   
 2021년 11월 10일 : LEVEL1 정수 제곱근 판별 (Java)   
 2022년 7월 22일 : LEVEL1 최소 직사각형 (Java), LEVEL1 모의고사 (Java)   
+2023년 9월 10일 : LEVEL0 두 수의 합 (Java), LEVEL0 두 수의 차 (Java), LEVEL0 두 수의 곱 (Java), LEVEL0 몫 구하기 (Java)   
 <br/>
 
 ## :orange_book:SW Expert Academy   
