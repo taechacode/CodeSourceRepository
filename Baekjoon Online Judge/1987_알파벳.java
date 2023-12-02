@@ -1,65 +1,69 @@
-package Baekjoon;
 
 import java.io.*;
 import java.util.*;
 
-public class Main {	
-	static BufferedReader br;
-	static StringTokenizer st;
-	static int R, C, answer, count = 1;
-	static char[][] array;
-	static boolean[] isSelected;
-	static int[] dx = {0, 0, -1, 1};
-	static int[] dy = {-1, 1, 0, 0};
+public class Main {
 
+	static StringBuilder sb = new StringBuilder();
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	static int R, C;
+	static String[][] board;
+	static boolean[][] visited;
+	
+	static int[][] direction = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+	static int currentCount;
+	static int maxCount;
+	
+	static HashSet<String> alphabetHistory = new HashSet<String>();
+	
 	public static void main(String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		st = new StringTokenizer(br.readLine());
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
 		
-		array = new char[R][C];
-		isSelected = new boolean[26];
+		board = new String[R][C];
+		visited = new boolean[R][C];
 		
-		for(int i = 0; i < R; i++) {
-			String str = br.readLine();
-			array[i] = str.toCharArray();
+		for(int row = 0; row < R; row++) {
+			board[row] = br.readLine().split("");
 		}
 		
-		search(0, 0, 0);
-		System.out.println(answer);
+		currentCount = 0;
+		maxCount = 0;
+		
+		DFS(0, 0);
+		
+		System.out.println(maxCount);
+		
 	}
 	
-	public static void search(int r, int c, int count) {
+	private static void DFS(int row, int col) {
 		
-		// 만약 방문을 한 좌표라면
-		if(isSelected[array[r][c] - 65]) {
+		alphabetHistory.add(board[row][col]);
+		visited[row][col] = true;
+		currentCount++;		
+		maxCount = Math.max(maxCount, currentCount);
+		
+		for(int dir = 0; dir < 4; dir++) {
 			
-			// 해당 좌표까지의 count값과 기존 answer 값을 비교해서 큰 값을 answer에 넣어줌
-			answer = Math.max(answer, count);
+			int nextDirRow = row + direction[dir][0];
+			int nextDirCol = col + direction[dir][1];
 			
-			// 이전 좌표로 이동
-			return;
+			if(nextDirRow < 0 || nextDirRow >= R || nextDirCol < 0 || nextDirCol >= C) continue;
+			
+			if(alphabetHistory.contains(board[nextDirRow][nextDirCol])) continue;
+			
+			DFS(nextDirRow, nextDirCol);
+			
 		}
 		
-		else {
-			
-			// 현재 좌표를 방문했음으로 처리
-			isSelected[array[r][c] - 65] = true;
-			
-			for(int i = 0; i < 4; i++) {
-				int nx = r + dx[i];
-				int ny = c + dy[i];
-				
-				// 4방향 탐색 좌표가 배열 범위 안에 있을 경우 해당 좌표로 탐색
-				if(nx >= 0 && ny >= 0 && nx < R && ny < C) {
-					search(nx, ny, count + 1);
-				}
-			}
-			
-			// 탐색했었던 경로가 잘못되었을 경우를 대비해 방문했던 좌표를 미방문으로 바꿔줌
-			isSelected[array[r][c] - 65] = false;
-		}
+		currentCount--;
+		visited[row][col] = false;
+		alphabetHistory.remove(board[row][col]);
 		
 	}
+	
 }
