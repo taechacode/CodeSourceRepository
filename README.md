@@ -240,6 +240,10 @@
 2022년 2월 21일 : 1228번 암호문1 (Java)   
 <br/>
 
-## :ledger:기타 코드들 The Others   
+## :ledger:Softeer    
+2024년 1월 6일 : LV1 A+B (Java), LV1 근무 시간 (Java)    
+<br/>
+
+## :notebook_with_decorative_cover:기타 코드들 The Others   
 2020년 6월 13일 : 음식 레시피 월드컵 (C++)   
 
