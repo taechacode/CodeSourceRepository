@@ -231,6 +231,7 @@
 2023년 9월 10일 : LEVEL0 두 수의 합 (Java), LEVEL0 두 수의 차 (Java), LEVEL0 두 수의 곱 (Java), LEVEL0 몫 구하기 (Java)   
 2024년 1월 3일 : LEVEL0 정수 찾기 (Java), LEVEL0 접두사인지 확인하기 (Java)    
 2024년 1월 5일 : LEVEL0 조건에 맞게 수열 변환하기 3 (Java), LEVEL0 문자열의 앞의 n글자 (Java)    
+2024년 1월 10일 : LEVEL0 n개 간격의 원소들 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
