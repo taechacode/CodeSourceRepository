@@ -248,6 +248,7 @@
 
 ## :ledger:Softeer    
 2024년 1월 6일 : LV1 A+B (Java), LV1 근무 시간 (Java)    
+2024년 1월 12일 : LV1 주행거리 비교하기 (Java)    
 <br/>
 
 ## :notebook_with_decorative_cover:기타 코드들 The Others   
