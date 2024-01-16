@@ -235,7 +235,7 @@
 2024년 1월 10일 : LEVEL0 n개 간격의 원소들 (Java)    
 2024년 1월 14일 : LEVEL0 flag에 따라 다른 값 반환하기 (Java), LEVEL1 나머지가 1이 되는 수 찾기 (Java)    
 2024년 1월 15일 : LEVEL1 문자열을 정수로 바꾸기 (Java), LEVEL1 약수의 합 (Java), LEVEL1 자릿수 더하기 (Java)    
-2024년 1월 16일 : LEVEL1 문자열 내 p와 y의 개수 (Java)    
+2024년 1월 16일 : LEVEL1 문자열 내 p와 y의 개수 (Java), LEVEL1 음양 더하기 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
