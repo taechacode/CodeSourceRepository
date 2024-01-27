@@ -239,6 +239,7 @@
 2024년 1월 17일 : LEVEL2 JadenCase 문자열 만들기 (Java)    
 2024년 1월 21일 : LEVEL2 최솟값 만들기 (Java)    
 2024년 1월 23일 : LEVEL2 올바른 괄호 (Java)    
+2024년 1월 27일 : LEVEL2 이진 변환 반복하기 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
