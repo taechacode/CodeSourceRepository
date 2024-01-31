@@ -242,6 +242,7 @@
 2024년 1월 27일 : LEVEL2 이진 변환 반복하기 (Java)    
 2024년 1월 29일 : LEVEL2 숫자의 표현 (Java)    
 2024년 1월 30일 : LEVEL2 다음 큰 숫자 (Java)    
+2024년 1월 31일 : LEVEL2 피보나치 수 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
