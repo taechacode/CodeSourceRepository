@@ -243,7 +243,7 @@
 2024년 1월 29일 : LEVEL2 숫자의 표현 (Java)    
 2024년 1월 30일 : LEVEL2 다음 큰 숫자 (Java)    
 2024년 1월 31일 : LEVEL2 피보나치 수 (Java)    
-2024년 2월 1일 : LEVEL2 짝지어 제거하기 (Java)    
+2024년 2월 1일 : LEVEL2 짝지어 제거하기 (Java), LEVEL2 카펫 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
