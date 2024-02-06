@@ -245,6 +245,7 @@
 2024년 1월 31일 : LEVEL2 피보나치 수 (Java)    
 2024년 2월 1일 : LEVEL2 짝지어 제거하기 (Java), LEVEL2 카펫 (Java)    
 2024년 2월 3일 : LEVEL2 영어 끝말잇기 (Java)    
+2024년 2월 7일 : LEVEL2 점프와 순간 이동 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
