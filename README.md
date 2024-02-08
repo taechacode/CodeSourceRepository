@@ -246,6 +246,7 @@
 2024년 2월 1일 : LEVEL2 짝지어 제거하기 (Java), LEVEL2 카펫 (Java)    
 2024년 2월 3일 : LEVEL2 영어 끝말잇기 (Java)    
 2024년 2월 7일 : LEVEL2 점프와 순간 이동 (Java), LEVEL2 구명보트 (Java)    
+2024년 2월 8일 : LEVEL2 예상 대진표 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
