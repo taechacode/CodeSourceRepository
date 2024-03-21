@@ -274,6 +274,7 @@
 2024년 2월 14일 : LEVEL2 귤 고르기 (Java)    
 2024년 2월 17일 : LEVEL2 연속 부분 수열 합의 개수 (Java), LEVEL2 괄호 회전하기 (Java)    
 2024년 3월 20일 : LEVEL2 할인 행사 (Java)    
+2024년 3월 21일 : LEVEL2 n^2 배열 자르기 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
