@@ -276,6 +276,7 @@
 2024년 3월 20일 : LEVEL2 할인 행사 (Java)    
 2024년 3월 21일 : LEVEL2 n^2 배열 자르기 (Java)    
 2024년 3월 22일 : LEVEL2 H-Index (Java)    
+2024년 3월 24일 : LEVEL2 행렬의 곱셈 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
