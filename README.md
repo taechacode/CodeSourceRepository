@@ -279,6 +279,7 @@
 2024년 3월 24일 : LEVEL2 행렬의 곱셈 (Java)    
 2024년 3월 25일 : LEVEL2 의상 (Java)    
 2024년 4월 2일 : LEVEL2 기능개발 (Java)    
+2024년 4월 4일 : LEVEL2 튜플 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
