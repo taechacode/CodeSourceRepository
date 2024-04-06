@@ -280,6 +280,7 @@
 2024년 3월 25일 : LEVEL2 의상 (Java)    
 2024년 4월 2일 : LEVEL2 기능개발 (Java)    
 2024년 4월 4일 : LEVEL2 튜플 (Java)    
+2024년 4월 6일 : LEVEL2 피로도 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
