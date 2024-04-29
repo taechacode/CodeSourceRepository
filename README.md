@@ -283,6 +283,7 @@
 2024년 4월 2일 : LEVEL2 기능개발 (Java)    
 2024년 4월 4일 : LEVEL2 튜플 (Java)    
 2024년 4월 6일 : LEVEL2 피로도 (Java)    
+2024년 4월 29일 : LEVEL2 프로세스 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
