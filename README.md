@@ -289,6 +289,7 @@
 2024년 4월 29일 : LEVEL2 프로세스 (Java)    
 2024년 5월 1일 : LEVEL2 전화번호 목록 (Java)    
 2024년 5월 7일 : LEVEL2 이중우선순위큐 (Java)    
+2024년 5월 9일 : LEVEL2 타겟 넘버 (Java)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
