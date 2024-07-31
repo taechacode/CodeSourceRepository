@@ -293,7 +293,7 @@
 2024년 5월 9일 : LEVEL2 타겟 넘버 (Java)    
 2024년 7월 16일 : LEVEL1 없는 숫자 더하기 (Java)    
 2024년 7월 30일 : LEVEL2 가격이 제일 비싼 식품의 정보 출력하기 (Oracle SQL), LEVEL2 [1차] 뉴스 클러스터링 (Java)    
-2024년 7월 31일 : LEVEL2 최댓값과 최솟값 (Java), LEVEL2 [3차] n진수 게임 (Java), LEVEL2 카테고리 별 상품 개수 구하기 (Oracle SQL)    
+2024년 7월 31일 : LEVEL2 최댓값과 최솟값 (Java), LEVEL2 [3차] n진수 게임 (Java), LEVEL2 카테고리 별 상품 개수 구하기 (Oracle SQL), LEVEL2 진료과별 총 예약 횟수 출력하기 (Oracle SQL)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
