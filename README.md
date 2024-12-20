@@ -295,6 +295,7 @@
 2024년 7월 16일 : LEVEL1 없는 숫자 더하기 (Java)    
 2024년 7월 30일 : LEVEL2 가격이 제일 비싼 식품의 정보 출력하기 (Oracle SQL), LEVEL2 [1차] 뉴스 클러스터링 (Java)    
 2024년 7월 31일 : LEVEL2 최댓값과 최솟값 (Java), LEVEL2 [3차] n진수 게임 (Java), LEVEL2 카테고리 별 상품 개수 구하기 (Oracle SQL), LEVEL2 진료과별 총 예약 횟수 출력하기 (Oracle SQL)    
+2024년 12월 20일 : LEVEL1 평균 일일 대여 요금 구하기 (Oracle SQL), LEVEL1 과일로 만든 아이스크림 고르기 (Oracle SQL), LEVEL2 3월에 태어난 여성 회원 목록 출력하기 (Oracle SQL)    
 <br/>
 
 ## :orange_book:SW Expert Academy   
